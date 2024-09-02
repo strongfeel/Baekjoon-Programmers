@@ -1,10 +1,10 @@
 # [level 1] 2016년 - 12901 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12901) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12901?language=javascript) 
 
 ### 성능 요약
 
-메모리: 75.3 MB, 시간: 1.03 ms
+메모리: 34.5 MB, 시간: 11.59 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 3일 18:33:21
+2024년 09월 02일 09:36:27
 
 ### 문제 설명
 

@@ -1,40 +1,22 @@
 function solution(topping) {
-  let answer = 0;
-  let leftHash = {};
-  let rightHash = {};
-  let leftSort = 0;
-  let rightSort = 0;
-  
-  for (const tp of topping) {
-    if (rightHash[tp]) {
-      rightHash[tp] += 1;
-    }else {
-      rightHash[tp] = 1;
-      rightSort += 1;
-    }
-  }
-  
-  for (let i = 0; i < topping.length; i ++) {
+   const right = new Map()
+   const left = new Map()
+   
+   for (const t of topping) {
+       if (right.get(t)) right.set(t , right.get(t)+1)
+       else right.set(t,1)
+   }
+
+    let ret = 0
+   for (const t of topping) {
+       if (right.get(t)>1) right.set(t, right.get(t)-1)
+       else right.delete(t)
+       
+       if (left.get(t)) left.set(t , left.get(t)+1)
+       else left.set(t,1)
+       
+       if (left.size === right.size) ret++
+   }
     
-    if (leftHash[topping[i]]) {
-      leftHash[topping[i]] += 1;
-    }else {
-      leftHash[topping[i]] = 1;
-      leftSort += 1;
-    }
-    
-    if(rightHash[topping[i]] - 1) {
-      rightHash[topping[i]] -= 1;
-    }else {
-      delete rightHash[topping[i]];
-      rightSort -= 1;
-    }
-  
-      
-    if (leftSort === rightSort) {
-      answer += 1;
-    }
-  }
-  
-  return answer;
+    return ret
 }

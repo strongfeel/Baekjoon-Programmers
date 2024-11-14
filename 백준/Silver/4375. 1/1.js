@@ -3,18 +3,17 @@ const input = fs.readFileSync("./dev/stdin").toString().trim().split('\n').map(N
 let answer = []
 
 for(let i = 0; i<input.length; i++){
-  let  gun= input[i];
-  let target = gun;
-  let cnt = 0;
-  while(true){
-    if(target==0){
-      answer.push(cnt)
+  const cur = input[i];
+  let num = 1; // 이 변수에 이전에 구한 값이 담기게 되는 것
+  let length = 1;
+
+  while (1) {
+    if (num % cur === 0) {
+      answer.push(length);
       break;
-    }else if(target%10==1){
-      cnt++;
-      target = Math.floor(target/10)
-    }else{
-      target+=gun
+    } else {
+      num = (num * 10 + 1) % cur; // 점화식
+      length += 1; // 1을 한자리 더 추가함
     }
   }
 }
